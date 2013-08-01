@@ -23,7 +23,11 @@ if ('development' == app.get('env')) {
 
 require("./routes");
 
-http.createServer(app)
-  .listen(conf.port, function() {
-  console.log('Visit ' + conf.origin + " to begin.");
+var db = require("./db");
+
+db.mongoose.connection.on('open', function() {
+  http.createServer(app)
+    .listen(conf.port, function() {
+      console.log('Visit ' + conf.origin + " to begin.");
+    });
 });
