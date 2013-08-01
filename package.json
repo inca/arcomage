@@ -1,14 +1,13 @@
 {
-  "name": "arcomage",
-  "version": "0.0.0",
-  "description": "Arcomage card game",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/inca/arcomage"
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
   },
-  "author": "Mixed",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/inca/arcomage/issues"
+  "dependencies": {
+    "express": "*",
+    "jade": "*",
+    "stylus": "*"
   }
 }
