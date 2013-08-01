@@ -5,10 +5,7 @@ var attrs = ['tower', 'wall', 'quarry', 'bricks', 'magic', 'gems', 'dungeon', 'r
 
 var Player = new mongoose.Schema({
 
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
-  },
+  user: mongoose.Schema.Types.ObjectId,
 
   tower: Number,
   wall: Number,
@@ -26,11 +23,12 @@ var Player = new mongoose.Schema({
 
 });
 
-Player.methods.set = function(obj) {
+Player.methods.attrs = function(obj) {
+  var player = this;
   attrs.forEach(function(a) {
     if (typeof (obj[a]) != "undefined")
-      this[a] = obj[a];
+      player[a] = obj[a];
   });
 };
 
-module.exports = exports = mongoose.model("User", User);
+module.exports = exports = mongoose.model("Player", Player);

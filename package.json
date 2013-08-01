@@ -9,6 +9,11 @@
     "express": "*",
     "jade": "*",
     "stylus": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "async": "*",
+    "underscore": "*"
+  },
+  "devDependencies": {
+    "mocha": "*"
   }
 }

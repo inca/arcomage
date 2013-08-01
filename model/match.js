@@ -1,28 +1,23 @@
 'use strict';
 
 var mongoose = require("mongoose")
-  , Player = require("Player");
+  , Player = require("./player");
 
 var Match = new mongoose.Schema({
 
-  host: Player.schema,
+  user: mongoose.Schema.Types.ObjectId,
 
-  guest: Player.schema,
+  players: [Player],
 
-  init: {
-
+  initials: {
     tower: Number,
     wall: Number,
-
     quarry: Number,
     bricks: Number,
-
     magic: Number,
     gems: Number,
-
     dungeon: Number,
     recruits: Number
-
   },
 
   win: {
@@ -31,30 +26,29 @@ var Match = new mongoose.Schema({
   },
 
   createdAt: Date,
-
   startedAt: Date,
-
   endedAt: Date,
 
   winner: String,
-
   current: String
 
 });
 
-Match.methods.create = function(hostUser) {
-  this.host = new Player({
-    user: hostUser
+Match.methods.init = function(hostUser) {
+  this.players[0] = new Player({
+    user: hostUser._id
   });
-  this.host.set(this.init);
+  this.players[0].attrs(this.initials);
   this.createdAt = new Date();
 };
 
 Match.methods.start = function(guestUser) {
-  this.guest = new Player({
-    user: guestUser
+  if (this.players.length != 1)
+    throw new Error("Match not created by host user.");
+  this.players[1] = new Player({
+    user: guestUser._id
   });
-  this.guest.set(this.init);
+  this.players[1].attrs(this.initials);
   this.startedAt = new Date();
 };
 
