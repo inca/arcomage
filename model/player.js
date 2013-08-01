@@ -1,24 +1,36 @@
 'use strict';
 
 var mongoose = require("mongoose");
+var attrs = ['tower', 'wall', 'quarry', 'bricks', 'magic', 'gems', 'dungeon', 'recruits'];
 
 var Player = new mongoose.Schema({
 
-  name: {
-    type: String,
-    required: true,
-    max: 160
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
   },
 
-  email: {
-    type: String,
-    required: true,
-    validate: /^\S+@\S+$/,
-    max: 160
-  },
+  tower: Number,
+  wall: Number,
 
-  password: String
+  quarry: Number,
+  bricks: Number,
+
+  magic: Number,
+  gems: Number,
+
+  dungeon: Number,
+  recruits: Number,
+
+  hand: [String]
 
 });
 
-module.exports = exports = mongoose.model("Player", Player);
+Player.methods.set = function(obj) {
+  attrs.forEach(function(a) {
+    if (typeof (obj[a]) != "undefined")
+      this[a] = obj[a];
+  });
+};
+
+module.exports = exports = mongoose.model("User", User);
