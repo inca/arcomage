@@ -1,0 +1,14 @@
+{
+  "name": "arcomage",
+  "version": "0.0.0",
+  "description": "Arcomage card game",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inca/arcomage"
+  },
+  "author": "Mixed",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/inca/arcomage/issues"
+  }
+}
