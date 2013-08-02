@@ -6,10 +6,10 @@ module.exports = {
     resource: 'bricks',
     cost: 0,
     description: 'All players<br/>lose 8 bricks',
-    play: function(me, him, match) {
-      me.bricks -= 8;
-      him.bricks -= 8;
-      return true;
+    play: function(match) {
+      match.me().bricks -= 8;
+      match.him().bricks -= 8;
+      match.nextPlayer();
     }
   },
 
@@ -17,10 +17,9 @@ module.exports = {
     resource: 'bricks',
     cost: 0,
     description: '+2 Bricks<br/>+2 Gems<br/>Play again',
-    play: function(me, him, match) {
-      me.bricks += 2;
-      me.gems += 2;
-      return false;
+    play: function(match) {
+      match.me().bricks += 2;
+      match.me().gems += 2;
     }
   },
 
@@ -28,9 +27,8 @@ module.exports = {
     resource: 'bricks',
     cost: 1,
     description: '+1 Wall<br/>Play again',
-    play: function(me, him, match) {
-      me.wall += 1;
-      return false;
+    play: function(match) {
+      match.me().wall += 1;
     }
   },
 
@@ -38,9 +36,9 @@ module.exports = {
     resource: 'bricks',
     cost: 3,
     description: '+1 Quarry',
-    play: function(me, him, match) {
-      me.quarry += 1;
-      return true;
+    play: function(match) {
+      match.me().quarry += 1;
+      match.nextPlayer();
     }
   }
 

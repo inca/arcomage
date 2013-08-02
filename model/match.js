@@ -1,7 +1,8 @@
 'use strict';
 
 var mongoose = require("mongoose")
-  , Player = require("./player");
+  , Player = require("./player")
+  , Cards = require("../cards");
 
 var Match = new mongoose.Schema({
 
@@ -52,8 +53,9 @@ Match.methods.init = function(hostUser) {
   this.players[0] = new Player({
     user: hostUser._id
   });
-  this.players[0].attrs(this.initials);
+  this.players[0].setAttrs(this.initials);
   this.createdAt = new Date();
+  return this;
 };
 
 Match.methods.start = function(guestUser) {
@@ -62,8 +64,45 @@ Match.methods.start = function(guestUser) {
   this.players[1] = new Player({
     user: guestUser._id
   });
-  this.players[1].attrs(this.initials);
+  this.players[1].setAttrs(this.initials);
   this.startedAt = new Date();
+  // Draw random cards
+  for (var i = 0; i < 5; i++) {
+    this.players[0].hand.push(Cards.getRandomKey());
+    this.players[1].hand.push(Cards.getRandomKey());
+  }
+  return this;
+};
+
+Match.methods.me = function() {
+  return this.players[this.current];
+};
+
+Match.methods.him = function() {
+  return this.players[(this.current + 1) % 2];
+};
+
+Match.methods.nextPlayer = function() {
+  this.me().modAttrs({
+    bricks: this.me().quarry,
+    gems: this.me().magic,
+    recruits: this.me().dungeon
+  });
+  this.current = (this.current + 1) % 2;
+};
+
+Match.methods.move = function(index) {
+  var cardKey = this.me().hand[index];
+  var card = Cards.getCard(cardKey);
+  this.me().modAttrs(card.resource, -card.cost);
+  card.play(this);
+  this.me().hand[index] = Cards.getRandomKey();
+};
+
+Match.methods.discard = function(index) {
+  this.me().hand[index] = Cards.getRandomKey();
+  if (this.state == "move") this.nextPlayer();
+  else (this.state = "move");
 };
 
 module.exports = exports = mongoose.model("Match", Match);

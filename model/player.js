@@ -30,11 +30,23 @@ Player.pre('save', function() {
   });
 });
 
-Player.methods.attrs = function(obj) {
+Player.methods.setAttrs = function(obj, value) {
   var player = this;
-  attrs.forEach(function(a) {
+  if (value) {
+    player[obj] = value;
+  } else attrs.forEach(function(a) {
     if (typeof (obj[a]) != "undefined")
       player[a] = obj[a];
+  });
+};
+
+Player.methods.modAttrs = function(obj, value) {
+  var player = this;
+  if (value) {
+    player[obj] = value;
+  } else attrs.forEach(function(a) {
+    if (typeof (obj[a]) != "undefined")
+      player[a] += obj[a];
   });
 };
 
