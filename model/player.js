@@ -23,6 +23,13 @@ var Player = new mongoose.Schema({
 
 });
 
+Player.pre('save', function() {
+  attrs.forEach(function(a) {
+    if (this[a] < 0)
+      this[a] = 0;
+  });
+});
+
 Player.methods.attrs = function(obj) {
   var player = this;
   attrs.forEach(function(a) {

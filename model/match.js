@@ -9,6 +9,18 @@ var Match = new mongoose.Schema({
 
   players: [Player],
 
+  current: {
+    type: Number,
+    default: 0,
+    enum: [0, 1]
+  },
+
+  state: {
+    type: String,
+    default: 'move',
+    enum: ['move', 'discard']
+  },
+
   initials: {
     tower: Number,
     wall: Number,
@@ -29,8 +41,10 @@ var Match = new mongoose.Schema({
   startedAt: Date,
   endedAt: Date,
 
-  winner: String,
-  current: String
+  winner: {
+    type: Number,
+    enum: [0, 1]
+  }
 
 });
 
