@@ -50,4 +50,21 @@ Player.methods.modAttrs = function(obj, value) {
   });
 };
 
+Player.methods.damage = function(value, toTower) {
+  var player = this;
+  if (value < 0)
+    value = 0;
+  if (toTower)
+    player.tower -= value;
+  else {
+    if (player.wall >= value) {
+      player.wall -= value
+    } else {
+      player.tower -= (value - player.wall);
+      player.wall = 0
+    }
+  }
+  return this;
+};
+
 module.exports = exports = mongoose.model("Player", Player);
