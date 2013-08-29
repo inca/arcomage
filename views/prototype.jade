@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  div#field
+    div.cards
+      - each card in cards
+        div(class="card #{card.resource}")
+          div.color-wrapper
+            div.icon
+            div.description
+
+

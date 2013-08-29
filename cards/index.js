@@ -2,7 +2,7 @@
 
 var _ = require('underscore');
 
-var cards = _.extend({}, require('./original_bricks'), require('./original_recruits'));
+var cards = _.extend({}, require('./original_bricks'), require('./original_recruits'), require("./original_gems"));
 var keys = Object.keys(cards);
 
 function getRandomKey() {
