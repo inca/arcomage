@@ -5,8 +5,9 @@ block content
     div.cards
       - each card in cards
         div(class="card #{card.resource}")
-          div.color-wrapper
-            div.icon
-            div.description
+          .color-wrapper
+            .icon
+            .description
+            .cost=card.cost
 
 

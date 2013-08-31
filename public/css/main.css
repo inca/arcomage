@@ -22,27 +22,71 @@
   display: block;
   float: left;
 }
+#field .cards .card:first-child {
+  transform: rotate(-37deg);
+  -ms-transform: rotate(-37deg);
+  -webkit-transform: rotate(-37deg);
+  -moz-transform: rotate(-37deg);
+  -o-transform: rotate(-37deg);
+  margin-top: 40px;
+}
+#field .cards .card:nth-child(2) {
+  transform: rotate(-22deg);
+  -ms-transform: rotate(-22deg);
+  -webkit-transform: rotate(-22deg);
+  -moz-transform: rotate(-22deg);
+  -o-transform: rotate(-22deg);
+  margin-top: 10px;
+}
+#field .cards .card:nth-child(3) {
+  transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+}
+#field .cards .card:nth-child(4) {
+  transform: rotate(22deg);
+  -ms-transform: rotate(22deg);
+  -webkit-transform: rotate(22deg);
+  -moz-transform: rotate(22deg);
+  -o-transform: rotate(22deg);
+  margin-top: 10px;
+}
+#field .cards .card:nth-child(5) {
+  transform: rotate(37deg);
+  -ms-transform: rotate(37deg);
+  -webkit-transform: rotate(37deg);
+  -moz-transform: rotate(37deg);
+  -o-transform: rotate(37deg);
+  margin-top: 40px;
+}
+#field .cards .card:hover {
+  z-index: 11;
+}
 #field .cards .card + .card {
-  margin-left: 8px;
+  margin-left: -80px;
 }
-#field .cards .card .color-wrapper {
-  border-radius: 16px;
-  position: absolute;
-  top: 12px;
-  bottom: 12px;
-  right: 12px;
-  left: 12px;
-}
-#field .cards .card .color-wrapper .icon {
-  top: 8px;
+#field .cards .card .icon,
+#field .cards .card .cost {
   left: 4px;
   height: 32px;
   width: 32px;
   background: #fff;
-  border-radius: 4px;
   position: absolute;
 }
-#field .cards .card .color-wrapper .description {
+#field .cards .card .icon {
+  top: 8px;
+  border-radius: 4px;
+}
+#field .cards .card .cost {
+  bottom: 8px;
+  text-align: center;
+  line-height: 28px;
+  font-size: 24px;
+  border-radius: 32px;
+}
+#field .cards .card .description {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -51,23 +95,23 @@
   background: #fff;
   border-radius: 8px;
 }
+#field .cards .card.bricks {
+  background: #c12236 url("/img/ui/noise.png") repeat;
+}
 #field .cards .card.bricks .icon {
   background: url("/img/icons/lorc/originals/svg/mountains.svg");
 }
-#field .cards .card.bricks .color-wrapper {
-  background: #c12236 url("/img/ui/noise.png") repeat;
+#field .cards .card.recruits {
+  background: #ebb309 url("/img/ui/noise.png") repeat;
 }
 #field .cards .card.recruits .icon {
   background: url("/img/icons/lorc/originals/svg/flaming-arrow.svg");
 }
-#field .cards .card.recruits .color-wrapper {
-  background: #ebb309 url("/img/ui/noise.png") repeat;
+#field .cards .card.gems {
+  background: #2070d8 url("/img/ui/noise.png") repeat;
 }
 #field .cards .card.gems .icon {
   background: url("/img/icons/lorc/originals/svg/gems.svg");
-}
-#field .cards .card.gems .color-wrapper {
-  background: #2070d8 url("/img/ui/noise.png") repeat;
 }
 body {
   font-family: Georgia, Times, serif;

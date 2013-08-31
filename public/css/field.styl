@@ -1,4 +1,12 @@
 @import 'variables'
+
+rotate2D()
+  transform: rotate(arguments)
+  -ms-transform: rotate(arguments)
+  -webkit-transform: rotate(arguments)
+  -moz-transform: rotate(arguments)
+  -o-transform: rotate(arguments)
+
 #field
 
   position:fixed
@@ -22,49 +30,68 @@
       display:block
       float:left
 
+      &:first-child
+        rotate2D -37deg
+        margin-top:40px
+      &:nth-child(2)
+        rotate2D -22deg
+        margin-top:10px
+      &:nth-child(3)
+        rotate2D 0deg
+      &:nth-child(4)
+        rotate2D 22deg
+        margin-top:10px
+      &:nth-child(5)
+        rotate2D 37deg
+        margin-top:40px
+
+      &:hover
+        z-index: 11
+
       + .card
-        margin-left:8px
+        margin-left: -80px
 
-      .color-wrapper
-        border-radius:16px
+      .icon, .cost
+        left:4px
+        height:32px
+        width:32px
+        background:#fff
         position:absolute
-        top:12px
-        bottom:12px
-        right:12px
-        left:12px
 
-        .icon
-          top:8px
-          left:4px
-          height:32px
-          width:32px
-          background:#fff
-          border-radius:4px
-          position:absolute
+      .icon
+        top:8px
+        border-radius:4px
 
-        .description
-          position:absolute
-          top:8px
-          right:8px
-          bottom:8px
-          left: 40px
-          background: #fff
-          border-radius: 8px
+      .cost
+        bottom:8px
+        text-align:center
+        line-height:28px
+        font-size:24px
+        border-radius:32px
+
+      .description
+        position:absolute
+        top:8px
+        right:8px
+        bottom:8px
+        left: 40px
+        background: #fff
+        border-radius: 8px
 
       &.bricks
         .icon
           background: url(/img/icons/lorc/originals/svg/mountains.svg)
-        .color-wrapper
-          background:#c12236 url(/img/ui/noise.png) repeat
+
+        background:#c12236 url(/img/ui/noise.png) repeat
       &.recruits
         .icon
           background: url(/img/icons/lorc/originals/svg/flaming-arrow.svg)
-        .color-wrapper
-          background:#ebb309 url(/img/ui/noise.png) repeat
+
+        background:#ebb309 url(/img/ui/noise.png) repeat
       &.gems
         .icon
           background: url(/img/icons/lorc/originals/svg/gems.svg)
-        .color-wrapper
-          background:#2070d8 url(/img/ui/noise.png) repeat
+
+        background:#2070d8 url(/img/ui/noise.png) repeat
 
 
