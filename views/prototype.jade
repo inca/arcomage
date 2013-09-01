@@ -2,12 +2,21 @@ extends layout
 
 block content
   div#field
-    div.cards
+    .cards
       - each card in cards
         div(class="card #{card.resource}")
           .color-wrapper
             .icon
             .description
             .cost=card.cost
+    .cards.oposite
+      - each card in cards
+        div(class="card #{card.resource}")
+          .color-wrapper
+            .icon
+            .description
+            .cost=card.cost
+
+
 
 

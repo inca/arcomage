@@ -21,6 +21,29 @@ rotate2D()
     right:0
     text-align:center
     display:block
+
+    &.oposite
+      bottom:auto
+      top:100px
+
+      .card
+        margin-bottom:0
+        &:first-child
+          rotate2D 25deg
+          margin-bottom:0
+        &:nth-child(2)
+          rotate2D 15deg
+        &:nth-child(3)
+          rotate2D 0deg
+        &:nth-child(4)
+          rotate2D -15deg
+          margin-bottom:0
+        &:nth-child(5)
+          rotate2D -25deg
+          margin-bottom:0
+
+        .icon, .cost, .description
+          display:none
     .card
       border-radius:16px
       position:relative
