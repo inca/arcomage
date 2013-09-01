@@ -7,9 +7,11 @@
 }
 #field .cards {
   position: absolute;
-  margin: 0 auto;
   bottom: 100px;
-  left: 23%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  display: block;
 }
 #field .cards .card {
   border-radius: 16px;
@@ -19,24 +21,22 @@
   box-shadow: 0 0 1px 2px rgba(0,0,0,0.15);
   height: 280px;
   width: 200px;
-  display: block;
-  float: left;
+  display: inline-block;
 }
 #field .cards .card:first-child {
-  transform: rotate(-37deg);
-  -ms-transform: rotate(-37deg);
-  -webkit-transform: rotate(-37deg);
-  -moz-transform: rotate(-37deg);
-  -o-transform: rotate(-37deg);
-  margin-top: 40px;
+  transform: rotate(-25deg);
+  -ms-transform: rotate(-25deg);
+  -webkit-transform: rotate(-25deg);
+  -moz-transform: rotate(-25deg);
+  -o-transform: rotate(-25deg);
+  margin-bottom: -25px;
 }
 #field .cards .card:nth-child(2) {
-  transform: rotate(-22deg);
-  -ms-transform: rotate(-22deg);
-  -webkit-transform: rotate(-22deg);
-  -moz-transform: rotate(-22deg);
-  -o-transform: rotate(-22deg);
-  margin-top: 10px;
+  transform: rotate(-15deg);
+  -ms-transform: rotate(-15deg);
+  -webkit-transform: rotate(-15deg);
+  -moz-transform: rotate(-15deg);
+  -o-transform: rotate(-15deg);
 }
 #field .cards .card:nth-child(3) {
   transform: rotate(0deg);
@@ -46,26 +46,26 @@
   -o-transform: rotate(0deg);
 }
 #field .cards .card:nth-child(4) {
-  transform: rotate(22deg);
-  -ms-transform: rotate(22deg);
-  -webkit-transform: rotate(22deg);
-  -moz-transform: rotate(22deg);
-  -o-transform: rotate(22deg);
-  margin-top: 10px;
+  transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  -webkit-transform: rotate(15deg);
+  -moz-transform: rotate(15deg);
+  -o-transform: rotate(15deg);
+  margin-bottom: -25px;
 }
 #field .cards .card:nth-child(5) {
-  transform: rotate(37deg);
-  -ms-transform: rotate(37deg);
-  -webkit-transform: rotate(37deg);
-  -moz-transform: rotate(37deg);
-  -o-transform: rotate(37deg);
-  margin-top: 40px;
+  transform: rotate(25deg);
+  -ms-transform: rotate(25deg);
+  -webkit-transform: rotate(25deg);
+  -moz-transform: rotate(25deg);
+  -o-transform: rotate(25deg);
+  margin-bottom: -55px;
 }
 #field .cards .card:hover {
   z-index: 11;
 }
 #field .cards .card + .card {
-  margin-left: -80px;
+  margin-left: -100px;
 }
 #field .cards .card .icon,
 #field .cards .card .cost {
